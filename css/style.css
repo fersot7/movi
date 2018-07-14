@@ -1,0 +1,223 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+}
+.container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 70px 1fr;
+    height: 100vh;
+    grid-template-areas: "header header"
+                         "aside contenido";
+}
+header {
+    display: grid;
+    grid-area: header;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: "logo buscar perfil";
+    align-items: center;
+    background-color: white;
+}
+
+.logo {
+    grid-area: logo;
+    margin-left: 30px;
+}
+
+.buscar {
+    grid-area: buscar;
+}
+
+.buscar input {
+    width: 100%;
+    border-radius: 10px;
+    padding: 4px 0 4px 5px ;
+    box-sizing: border-box;
+}
+
+.perfil {
+    grid-area: perfil;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+.perfil .img-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0 8px 0 8px;
+}
+
+.aside {
+    grid-area: aside;
+    background-color: rgba(255,83,91,0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.aside figure {
+    margin:0; 
+}
+
+aside .aside-up a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 25px;
+}
+
+aside .aside-down {
+    margin-bottom: 25px;
+}
+
+aside .aside-down a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    display: block;
+}
+
+.contenido {
+    grid-area: contenido;
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-rows: 70px 150px 70px 150px 70px 150px;
+    margin: 0 5px 20px 30px;
+    grid-column-gap: 40px;
+}
+
+.contenido .items {
+    position: relative;
+}
+
+.contenido .grill-one, .grill-two, .grill-three {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 40px;
+}
+
+.movie-one {
+    background: url(../src/assets/movies/Ec.jpg) center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.movie-two {
+    background: url(../src/assets/movies/tr.jpg) center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.movie-three {
+    background: url(../src/assets/movies/aiw.jpg) center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.items-pos {
+    background-color:  rgba(255,83,91,0.75);
+    color: white;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    padding-left: 5px;
+    box-sizing: border-box;
+    bottom: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.items-pos h4 {
+    padding-top: 5px;
+    margin: 0;
+}
+
+.items-pos p {
+    font-size: .7rem;
+}
+
+@media screen and (max-width: 860px) {
+    .contenido .grill-one, .grill-two, .grill-three {
+        grid-column-gap: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-rows: 110px 1fr;
+    }
+
+    header {
+        grid-template-columns: 100px 1fr;
+        grid-template-areas: "logo perfil"
+                             "buscar buscar";
+    }
+
+    .buscar {
+        width: 100%;
+        text-align: center;
+    }
+
+    .buscar input {
+        width: 60%;
+    }
+
+    .contenido {
+        grid-template-rows: 70px 400px 70px 400px 70px 400px;
+    }
+    
+    .contenido .grill-one, .grill-two, .grill-three {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    
+    .container {
+        grid-template-rows: 130px 1fr;
+    }
+
+    header {
+        grid-template-columns: 100%;
+        grid-template-areas: "logo" 
+                             "perfil"
+                             "buscar";
+    }
+
+    .logo {
+        text-align: center;
+        margin: 0;
+    }
+    
+    .buscar {
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    .buscar input {
+        width: 100%;
+    }
+
+    .perfil {
+        justify-content: center;
+    }
+
+    .items-pos {
+        height: 30%;
+        text-align: center;
+    }
+
+    .items-pos p {
+        display: none;
+    }
+}
+
+
